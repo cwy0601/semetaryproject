@@ -11,14 +11,14 @@ int main(void)
 {
 	printf("Please choose date to watch a movie.\n");
 
-	while(1)
+	while (1)
 	{
-		scanf("%d", %year);
+		scanf("%d", &year);
 
-		if(year > 2017 || year < 2016)
+		if (year > 2017 || year < 2016)
 		{
-			printf("Please choose in 2016 or 2017.\n")
-			continue; 
+			printf("Please choose in 2016 or 2017.\n");
+				continue;
 		}
 		else
 			break;
@@ -26,14 +26,14 @@ int main(void)
 
 	printf("Please choose a month.\n");
 
-	while(1)
+	while (1)
 	{
-		scanf("%d", %month);
+		scanf("%d", &month);
 
-		if(month > 12 || month < 0)
+		if (month > 12 || month < 0)
 		{
-			printf("Please choose in January ~ December.\n);
-			continue;
+			printf("Please choose in January ~ December.\n");
+				continue;
 		}
 		else
 			break;
@@ -41,15 +41,15 @@ int main(void)
 
 	printf("Please choose a day.\n");
 
-	while(1)
+	while (1)
 	{
-		scanf("%d", %day);
+		scanf("%d", &day);
 
-		if(((month <= 7 && month % 2 == 0) || (month > 7 && month % 2 == 1)) && day > 30)
+		if (((month <= 7 && month % 2 == 0) || (month > 7 && month % 2 == 1)) && day > 30)
 		{
-			if(month == 2)
+			if (month == 2)
 			{
-				if(year % 4 == 0)
+				if (year % 4 == 0)
 				{
 					printf("Please choose in 0 - 29.\n");
 					continue;
@@ -64,7 +64,7 @@ int main(void)
 			printf("Please choose in 0 - 30.\n");
 			continue;
 		}
-		else if(((month <= 7 && month % 2 == 1) || (month > 7 && month % 2 == 0)) && day > 31)
+		else if (((month <= 7 && month % 2 == 1) || (month > 7 && month % 2 == 0)) && day > 31)
 		{
 			printf("Please choose in 0 - 31.\n");
 			continue;
