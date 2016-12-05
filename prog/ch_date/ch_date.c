@@ -7,7 +7,7 @@ int year;
 int month;
 int day;
 
-int main(void)
+void ch_date(void)
 {
 	printf("Please choose date to watch a movie.\n");
 
