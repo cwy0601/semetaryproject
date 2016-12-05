@@ -22,10 +22,3 @@ void ch_movie(void)
 	else
 		printf("You've chosen %s!\n", movie_name[sel-1]);
 }
-
-int main(void)
-{
-	ch_movie();
-
-	return 0;
-}
