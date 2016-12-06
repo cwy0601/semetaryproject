@@ -25,9 +25,3 @@ void view_res() // for view reservation
 
         fclose(fp);
 }
-
-int main(void)
-{
-	view_res();
-	return 0;
-}

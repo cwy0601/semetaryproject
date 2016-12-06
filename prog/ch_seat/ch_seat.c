@@ -92,9 +92,3 @@ void seatsel()
 
 	while(1);
 }
-
-int main()
-{
-	seatsel();
-	return 0;
-}
