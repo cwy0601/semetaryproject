@@ -1,15 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "../include/info.h"
 
 int main(void)
 {
-	ch_movie();
-	ch_theater();
-	ch_date();
-	ch_seat();
-	payment();
+	ch_movie(movie_name, CNT, msel);
+	ch_theater(theater);
+	ch_date(year, month, day, date);
+	ch_seat(mrow, mcol);
+	payment(movie_name, msel, mcol, mrow, ticket, ccost);
 	view_res();
 
 	return 0;
