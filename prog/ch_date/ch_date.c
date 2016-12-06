@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
-char date[13];
-
-int year;
-int month;
-int day;
+#include "../../include/info.h"
 
 void ch_date(void)
 {

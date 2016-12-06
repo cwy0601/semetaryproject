@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "../../include/info.h"
 
-void seatsel()
+void seat_sel()
 {
 	int row = 0;
 	int col = 0;
@@ -47,12 +48,9 @@ void seatsel()
 		printf("\n");
 	}
 
-//	fflush(stdout);
-
 	do
 	{
 		printf("Choose seat: Row and Column\n");
-//		fflush(stdout);
 		scanf("%d %d", &row, &col);
 
 		if ((row<1 || row>10) && (col<1 || col>10))
@@ -87,8 +85,8 @@ void seatsel()
 			}
 		}
 
-//		fflush(stdout);
-	}
-
-	while(1);
+		mrow = row;
+		mcol = col;
+		break;
+	}while(1);
 }

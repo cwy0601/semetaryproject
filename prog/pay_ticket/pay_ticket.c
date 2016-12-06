@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include "../../include/info.h"
 
 void display_card()
 {
@@ -8,7 +10,7 @@ void display_card()
 	char ch;
 
 	fp = fopen("data.txt", "r");
-	if(fp == NULL)
+	if (fp == NULL)
 	{
 		printf("FILE DOES NOT FOUND!");
 		exit(1);
@@ -17,25 +19,28 @@ void display_card()
 	else
 	{
 		system("clear");
-		while( (ch = fgetc(fp)) != EOF )
-      		printf("%c", ch);
+		while ((ch = fgetc(fp)) != EOF)
+			printf("%c", ch);
 	}
 
 	fclose(fp);
 }
 
-void pay_ticket()
+int pay_ticket()
 {
-	struct book{
-        char card[20];
-        char name[20];
-        int cost;
-	}b;
+	int retval = 0;
+
+	struct book {
+		char card[20];
+		char name[20];
+		int cost;
+	};
+
+	struct book b;
 
 	FILE *fpp;
 	FILE *ufp;
 
-	int ticket = 6000;
 	char phnum[20];
 	char cardnum[20];
 	char name[20];
@@ -44,99 +49,110 @@ void pay_ticket()
 	scanf("%s", cardnum);
 	//system("clear");
 	fpp = fopen("data.txt", "r");
-	if(fpp == NULL)
+	if (fpp == NULL)
 	{
 		printf("FILE DOES NOT FOUND!");
 		exit(1);
-
 	}
 	else
-	{	
-		while(getc(fpp) != EOF)
+	{
+		while (getc(fpp) != EOF)
 		{
-			fscanf(fpp, "%s %s %d", b.name, b.card, &b.cost);
-			if(strcmp(b.card, cardnum) == 0)
-			{	
-				printf("\n Record Found.");
-				printf("\n\t\tCard number: %s", b.card);
-				printf("\n\t\tName: %s", b.name);
-				printf("\n\t\tBalance of accounts: %d", b.cost);
+			fscanf(fpp, "%s %s %d", b.card, b.name, &b.cost);
+			printf("%s %s %d \n", b.card, b.name, b.cost);
+
+			if (strcmp(b.card, cardnum) == 0)
+			{
+				printf("\nRecord Found.");
+				printf("\n\tCard number: %s", b.card);
+				printf("\n\tName: %s", b.name);
+				printf("\n\tBalance of accounts: %d", b.cost);
+
+				ccost = b.cost;
+				break;
 			}
 		}
-		
+
 	}
 
-	printf("\nPlease enter your details.");
+	printf("\n\nPlease enter your details.");
 	printf("\nName: ");
 	scanf("%s", name);
-	printf("\nPhone number: ");
+	printf("Phone number: ");
 	scanf("%s", phnum);
 
-/*	b.cost = b.cost - ticket;
-	if(b.cost < 6000){
+	if (ccost < ticket) {
 		printf("You don't have enough money to pay ticket. \n");
 		exit(0);
-	} */
+	}
 	
 	printf("\n ***** TRANSACTIONS ****\n");
 	printf("\n\t\tName: %s", name);
 	printf("\n\t\tPhone number: %s", phnum);
-//	printf("\n\t\tMovie name: %s", b.name);
-//	printf("\n\t\tTotal seats : %d",total_seat);
+	printf("\n\t\tMovie name: %s", movie_name[msel - 1]);
+	printf("\n\t\tYour seat: %d-%d", mrow, mcol);
 	printf("\n\t\tTicket price: %d", ticket);
-//	printf("\n\t\tTotal Amount: %d", total_amount);
 
 	ufp = fopen("reserved.txt", "a");
-	if(ufp == NULL)
+	if (ufp == NULL)
 	{
 		printf("FILE DOES NOT FOUND!");
 		exit(1);
 	}
 	else
 	{
-		fprintf(ufp, "%s %s %d \n", name, phnum, ticket);
+		fprintf(ufp, "%s %s %s %d-%d %d \n", name, phnum, movie_name[msel - 1], mrow, mcol, ticket);
 		printf("\nSuccessful. ");
+		printf("\n");
+		fclose(ufp);
+		fclose(fpp);
+
+		return 1;
 	}
-	
+
 	printf("\n");
-	fclose(ufp);	
+	fclose(ufp);
 	fclose(fpp);
+
 }
 
-void payment()
+int main(void)
 {
 	int select;
+	int retval;
 
- 	do
+	do
 	{
-		printf("\n");	
+		printf("\n");
 		printf("\t PAYMENT OPTIONS");
-		printf("\n");	
-	
+		printf("\n");
+
 		printf("\nPress <1>: Display Card Informations");
-	   	printf("\nPress <2>: Pay Ticket");
-	   	printf("\nPress <0>: Exit");
+		printf("\nPress <2>: Pay Ticket");
+		printf("\nPress <0>: Exit");
 
-	   	printf("\nEnter your Choice: ");
-	   	scanf("%d", &select); 	
+		printf("\nEnter your Choice: ");
+		scanf("%d", &select);
 
-	   	switch (select)
-	   	{
-	    		case 1:
-	    		display_card();
-	   		break;
-	
-			case 2:
-	    		pay_ticket();
-	   		break;
-	
-	    		case 0:
-	    		exit(0);
-	    		break;
-	
-	    		default:
-	    		printf("YOU TYPED A WRONG NUMBER!");
-	    		break;
-	   	}
-	 }while(select != 0);
+		switch (select)
+		{
+		case 1:
+			display_card();
+			break;
+
+		case 2:
+			retval = pay_ticket();
+			if (retval)
+				return 0;
+			break;
+
+		case 0:
+			exit(0);
+			break;
+
+		default:
+			printf("YOU TYPED A WRONG NUMBER!");
+			break;
+		}
+	} while (select != 0);
 }

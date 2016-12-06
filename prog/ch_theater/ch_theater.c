@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include "../../include/info.h"
 
-char *theater[6] = { "Ilsan", "Hwajeong", "Guri", "Gimpo", "Bucheon", "Pangyo" };
-
-int main(void)
+void ch_theater()
 {
 	char num;
 
