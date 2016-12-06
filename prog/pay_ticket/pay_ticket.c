@@ -56,7 +56,6 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 		while (getc(fpp) != EOF)
 		{
 			fscanf(fpp, "%s %s %d", b.card, b.name, &b.cost);
-			printf("%s %s %d \n", b.card, b.name, b.cost);
 
 			if (strcmp(b.card, cardnum) == 0)
 			{
