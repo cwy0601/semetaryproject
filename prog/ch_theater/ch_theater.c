@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include "../../include/info.h"
 
-void ch_theater()
+void ch_theater(char **theater)
 {
 	char num;
 

@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include "../../include/info.h"
 
-void seat_sel()
+void ch_seat(int mrow, int mcol)
 {
 	int row = 0;
 	int col = 0;

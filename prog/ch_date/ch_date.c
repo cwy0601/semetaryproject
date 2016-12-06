@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include "../../include/info.h"
 
-void ch_date(void)
+void ch_date(int year, int month, int day, char *date)
 {
 	printf("Please choose date to watch a movie.\n");
 

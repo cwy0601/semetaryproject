@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../../include/info.h"
 
 void display_card()
 {
@@ -26,10 +25,8 @@ void display_card()
 	fclose(fp);
 }
 
-int pay_ticket()
+int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int ccost)
 {
-	int retval = 0;
-
 	struct book {
 		char card[20];
 		char name[20];
@@ -116,7 +113,7 @@ int pay_ticket()
 
 }
 
-int main(void)
+void payment(char **movie_name, int msel, int mcol, int mrow, int ticket, int ccost)
 {
 	int select;
 	int retval;
@@ -141,9 +138,9 @@ int main(void)
 			break;
 
 		case 2:
-			retval = pay_ticket();
+			retval = pay_ticket(movie_name, msel, mcol, mrow, ticket, ccost);
 			if (retval)
-				return 0;
+				return;
 			break;
 
 		case 0:

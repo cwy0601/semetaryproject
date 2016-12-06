@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../include/info.h"
 
-void ch_movie(void)
+void ch_movie(char **movie_name, int CNT, int msel)
 {
 	int i;
 

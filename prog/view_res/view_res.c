@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../include/info.h"
 
 void view_res() // for view reservation
 {
