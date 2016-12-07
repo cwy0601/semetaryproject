@@ -42,8 +42,6 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 	char cardnum[20];
 	char name[20];
 
-	printf("\nEnter your card number: ");
-	scanf("%s", cardnum);
 	//system("clear");
 	fpp = fopen("data.txt", "r");
 	if (fpp == NULL)
@@ -56,6 +54,13 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 		while (getc(fpp) != EOF)
 		{
 			fscanf(fpp, "%s %s %d", b.card, b.name, &b.cost);
+		}
+		
+		printf("\nEnter your card number: ");
+
+		while(1)
+		{
+			scanf("%s", cardnum);
 
 			if (strcmp(b.card, cardnum) == 0)
 			{
@@ -67,7 +72,12 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 				ccost = b.cost;
 				break;
 			}
-		}
+			else
+			{
+				printf("You enter a wrong number. Please try again.\n");
+				continue;
+			}
+		}	
 	}
 
 	printf("\n\nPlease enter your details.");
