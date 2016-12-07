@@ -13,7 +13,6 @@ void display_card()
 	{
 		printf("FILE DOES NOT FOUND!\n");
 		exit(1);
-
 	}
 	else
 	{
@@ -35,7 +34,7 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 		int cost;
 	};
 
-	struct book b[num+1];
+	struct book b[num];
 
 	FILE *fpp;
 	FILE *ufp;
@@ -57,6 +56,8 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 		{
 			fscanf(fpp, "%s %s %d", b[idx].card, b[idx].name, &b[idx].cost);
 			idx++;
+			if(idx == num)
+				break;
 		}
 		
 		idx = 0;
