@@ -72,9 +72,6 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 			
 			for(int i = 0; i < NUM_OF_DATA; i++)
 			{
-				printf("%d.%s, %s\n", i, b[i].card, cardnum);
-				ret = strcmp(b[i].card, cardnum);
-				printf("%d\n", ret);
 				if (strcmp(b[i].card, cardnum) == 0)
 				{
 					printf("\nRecord Found.");
@@ -87,6 +84,8 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 					break;
 				}
 			}
+
+			printf("%d\n", flag);
 
 			if(flag = 1)
 				break;
