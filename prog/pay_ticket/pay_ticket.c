@@ -30,6 +30,7 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 {
 	int idx = 0;
 	int flag = 0;
+	int ret;
 
 	struct book {
 		char card[20];
@@ -68,10 +69,12 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 		while(1)
 		{
 			scanf("%s", cardnum);
-			printf("%s, %d\n", cardnum, flag);
 			
 			for(int i = 0; i < NUM_OF_DATA; i++)
 			{
+				printf("%d.%s, %s\n", i, b[i].card, cardnum);
+				ret = strcmp(b[i].card, cardnum);
+				printf("%d\n", ret);
 				if (strcmp(b[i].card, cardnum) == 0)
 				{
 					printf("\nRecord Found.");
