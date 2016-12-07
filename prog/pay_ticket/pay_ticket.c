@@ -35,7 +35,7 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 		int cost;
 	};
 
-	struct book b[num];
+	struct book b[num+1];
 
 	FILE *fpp;
 	FILE *ufp;
