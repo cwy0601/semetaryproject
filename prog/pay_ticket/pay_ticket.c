@@ -85,16 +85,14 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 				}
 			}
 
-			printf("%d\n", flag);
-
-			if(flag = 1)
-				break;
-			else if(flag == 0)
+			if(flag == 0)
 			{
 				printf("You enter a wrong number.\n");
 				printf("Enter your card number again: ");
 				continue;
 			}
+			else
+				break;
 		}	
 	}
 
