@@ -122,8 +122,8 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 	else
 	{
 		fprintf(ufp, "%s  %s  %s  %d-%d  %d \n", name, phnum, movie_name[msel - 1], mrow, mcol, ticket);
-		printf("\nSuccessfully reserved!\n\n");
-		printf("-----------------------------");
+		printf("\nSuccessfully reserved!\n");
+		printf("-----------------------------\n\n");
 		fclose(ufp);
 		fclose(fpp);
 
