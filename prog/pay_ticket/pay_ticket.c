@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define NUM_OF_DATA	3
+
 void display_card()
 {
 	FILE *fp;
@@ -24,7 +26,7 @@ void display_card()
 	fclose(fp);
 }
 
-int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int ccost, int num)
+int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int ccost)
 {
 	int idx = 0;
 
@@ -34,7 +36,7 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 		int cost;
 	};
 
-	struct book b[num];
+	struct book b[NUM_OF_DATA];
 
 	FILE *fpp;
 	FILE *ufp;
@@ -56,8 +58,6 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 		{
 			fscanf(fpp, "%s %s %d", b[idx].card, b[idx].name, &b[idx].cost);
 			idx++;
-			if(idx == num)
-				break;
 		}
 		
 		idx = 0;
@@ -81,7 +81,7 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 			
 			idx++;
 
-			if(idx == num)
+			if(idx == NUM_OF_DATA)
 			{
 				printf("You enter a wrong number. Please try again.\n");
 				idx = 0;
