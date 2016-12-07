@@ -36,4 +36,5 @@ void ch_theater(char **theater)
 	}
 
 	printf("You've chosen %s!\n", theater[num - 1]);
+	printf("----------------------------\n\n");
 }

@@ -4,6 +4,7 @@
 void ch_date(int year, int month, int day, char *date)
 {
 	printf("Please choose date to watch a movie.\n");
+	printf("Type a year (2016 or 2017): ");
 
 	while (1)
 	{
