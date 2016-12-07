@@ -1,2 +1,2 @@
 Name / Phone Number / Film / Seat(Row-Column) / Ticket Price
-LEE  010-4313-4859  Inception  5-6  6000 
+LEE  010-4313-4859  Inception  5-6  6000

@@ -22,7 +22,7 @@ void ch_movie(char **movie_name, int CNT, int *msel)
 		printf("Press number : ");
 		scanf("%d", msel);
 
-		if(*msel < 0 || *msel > CNT)
+		if(*msel <= 0 || *msel > CNT)
 		{
 			printf("Please write in 1 ~ %d\n", CNT);
 			continue;
