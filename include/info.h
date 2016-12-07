@@ -1,7 +1,8 @@
 #ifndef __INFO_H_
 #define __INFO_H_
 
-#define CNT	5
+#define CNT		5
+#define NUM_OF_DATA	3
 
 void ch_movie();
 void ch_date();
