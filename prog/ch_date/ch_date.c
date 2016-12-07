@@ -4,7 +4,7 @@
 void ch_date(int *year, int *month, int *day)
 {
 	printf("Please choose date to watch a movie.\n");
-	printf("Type a year (2016 or 2017): ");
+	printf("Please choose a year (2016 or 2017): ");
 
 	while (1)
 	{
@@ -13,7 +13,7 @@ void ch_date(int *year, int *month, int *day)
 		if (*year > 2017 || *year < 2016)
 		{
 			printf("Please choose in 2016 or 2017.\n");
-			printf("Type a year: ");
+			printf("Please choose a year again: ");
 			continue;
 		}
 		else
@@ -22,7 +22,7 @@ void ch_date(int *year, int *month, int *day)
 
 	while (1)
 	{
-		printf("Please choose a month (1 - 12): \n");
+		printf("Please choose a month : ");
 		scanf("%d", month);
 
 		if (*month > 12 || *month <= 0)

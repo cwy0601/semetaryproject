@@ -1,9 +1,7 @@
 #include <stdio.h>
 
-void ch_seat(int mrow, int mcol)
+void ch_seat(int *mrow, int *mcol)
 {
-	int row = 0;
-	int col = 0;
 	int i, j;
 
 	// seat selection prototype
@@ -54,9 +52,9 @@ void ch_seat(int mrow, int mcol)
 		while(1)
 		{		
 			printf("Type row: ");
-			scanf("%d", &row);
+			scanf("%d", mrow);
 
-			if (row<1 || row>10)
+			if (*mrow<1 || *mrow>10)
 			{
 				printf("Wrong choice, try again.\n");
 				continue;
@@ -68,9 +66,9 @@ void ch_seat(int mrow, int mcol)
 		while(1)
 		{		
 			printf("Type column: ");
-			scanf("%d", &col);
+			scanf("%d", mcol);
 
-			if (col<1 || col>10)
+			if (*mcol<1 || *mcol>10)
 			{
 				printf("Wrong choice, try again.\n");
 				continue;
@@ -79,13 +77,13 @@ void ch_seat(int mrow, int mcol)
 			break;
 		}
 
-		if (taken[row][col])
+		if (taken[*mrow][*mcol])
 		{
 			printf("This seat is taken, try again\n");
 		}
 		else
 		{
-			taken[row][col] = 1;
+			taken[*mrow][*mcol] = 1;
           		printf("============= Theater =============\n");
 
 			for (i = 1; i <= 10; i++)
@@ -105,9 +103,6 @@ void ch_seat(int mrow, int mcol)
 				printf("\n");
 			}
 		}
-
-		mrow = row;
-		mcol = col;
 		break;
 	}while(1);
 }
