@@ -68,7 +68,6 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 				break;
 			}
 		}
-
 	}
 
 	printf("\n\nPlease enter your details.");
@@ -83,11 +82,11 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 	}
 	
 	printf("\n ***** TRANSACTIONS ****\n");
-	printf("\n\t\tName: %s", name);
-	printf("\n\t\tPhone number: %s", phnum);
-	printf("\n\t\tMovie name: %s", movie_name[msel - 1]);
-	printf("\n\t\tYour seat: %d-%d", mrow, mcol);
-	printf("\n\t\tTicket price: %d", ticket);
+	printf("\n\tName: %s", name);
+	printf("\n\tPhone number: %s", phnum);
+	printf("\n\tMovie name: %s", movie_name[msel - 1]);
+	printf("\n\tYour seat: %d-%d", mrow, mcol);
+	printf("\n\tTicket price: %d\n", ticket);
 
 	ufp = fopen("reserved.txt", "a");
 	if (ufp == NULL)
@@ -97,9 +96,9 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 	}
 	else
 	{
-		fprintf(ufp, "%s %s %s %d-%d %d \n", name, phnum, movie_name[msel - 1], mrow, mcol, ticket);
-		printf("\nSuccessful. ");
-		printf("\n");
+		fprintf(ufp, "%s  %s  %s  %d-%d  %d \n", name, phnum, movie_name[msel - 1], mrow, mcol, ticket);
+		printf("\nSuccessfully reserved!\n\n");
+		printf("-----------------------------");
 		fclose(ufp);
 		fclose(fpp);
 

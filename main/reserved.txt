@@ -1,0 +1,3 @@
+Name - Phone Number - Film - Seat - Ticket Price
+
+LJH  010-4313-4859  (null)  0-0  6000 

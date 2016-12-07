@@ -49,12 +49,34 @@ void ch_seat(int mrow, int mcol)
 
 	do
 	{
-		printf("Choose seat: Row and Column\n");
-		scanf("%d %d", &row, &col);
+		printf("Choose seat.\n");
 
-		if ((row<1 || row>10) && (col<1 || col>10))
-		{
-			printf("Wrong choice, try again\n");
+		while(1)
+		{		
+			printf("Type row: ");
+			scanf("%d", &row);
+
+			if (row<1 || row>10)
+			{
+				printf("Wrong choice, try again.\n");
+				continue;
+			}
+
+			break;
+		}
+
+		while(1)
+		{		
+			printf("Type column: ");
+			scanf("%d", &col);
+
+			if (col<1 || col>10)
+			{
+				printf("Wrong choice, try again.\n");
+				continue;
+			}
+
+			break;
 		}
 
 		if (taken[row][col])
