@@ -5,7 +5,7 @@
 
 void ch_movie();
 void ch_date();
-void seat_sel();
+void ch_seat();
 void ch_theater();
 
 void display_card();
@@ -19,13 +19,13 @@ char *movie_name[CNT] = {"Suicide Squad", "Harry Potter", "Gravity", "Inception"
 int msel;
 
 //ch_date
-char date[13];
 int year;
 int month;
 int day;
 
 //ch_theater
 char *theater[6] = { "Ilsan", "Hwajeong", "Guri", "Gimpo", "Bucheon", "Pangyo" };
+char tsel;
 
 //ch_seat
 int mrow;
