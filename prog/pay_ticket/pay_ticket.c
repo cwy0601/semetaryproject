@@ -11,7 +11,7 @@ void display_card()
 	fp = fopen("data.txt", "r");
 	if (fp == NULL)
 	{
-		printf("FILE DOES NOT FOUND!");
+		printf("FILE DOES NOT FOUND!\n");
 		exit(1);
 
 	}
@@ -48,7 +48,7 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 	fpp = fopen("data.txt", "r");
 	if (fpp == NULL)
 	{
-		printf("FILE DOES NOT FOUND!");
+		printf("FILE DOES NOT FOUND!\n");
 		exit(1);
 	}
 	else
@@ -91,7 +91,7 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 	ufp = fopen("reserved.txt", "a");
 	if (ufp == NULL)
 	{
-		printf("FILE DOES NOT FOUND!");
+		printf("FILE DOES NOT FOUND!\n");
 		exit(1);
 	}
 	else
