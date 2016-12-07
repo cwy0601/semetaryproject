@@ -63,6 +63,13 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 		
 		idx = 0;
 
+		for(int i = 0; i < NUM_OF_DATA; i++)
+		{
+			printf("%d. card: %s\n", b[i].card);
+			printf("%d. name: %s\n", b[i].name);
+			printf("%d. cost: %d\n", b[i].cost);
+		}
+
 		printf("\nEnter your card number: ");
 
 		while(1)
@@ -86,7 +93,7 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 
 			if(flag = 1)
 				break;
-			else
+			else if(flag == 0)
 			{
 				printf("You enter a wrong number.\n");
 				printf("Enter your card number again: ");
