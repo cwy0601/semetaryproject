@@ -25,15 +25,17 @@ void display_card()
 	fclose(fp);
 }
 
-int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int ccost)
+int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int ccost, int num)
 {
+	int idx = 0;
+
 	struct book {
 		char card[20];
 		char name[20];
 		int cost;
 	};
 
-	struct book b;
+	struct book b[num];
 
 	FILE *fpp;
 	FILE *ufp;
@@ -53,28 +55,35 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 	{
 		while (getc(fpp) != EOF)
 		{
-			fscanf(fpp, "%s %s %d", b.card, b.name, &b.cost);
+			fscanf(fpp, "%s %s %d", b[idx].card, b[idx].name, &b[idx].cost);
+			idx++;
 		}
 		
+		idx = 0;
+
 		printf("\nEnter your card number: ");
 
 		while(1)
 		{
 			scanf("%s", cardnum);
-
-			if (strcmp(b.card, cardnum) == 0)
+			
+			if (strcmp(b[idx].card, cardnum) == 0)
 			{
 				printf("\nRecord Found.");
-				printf("\n\tCard number: %s", b.card);
-				printf("\n\tName: %s", b.name);
-				printf("\n\tBalance of accounts: %d", b.cost);
+				printf("\n\tCard number: %s", b[idx].card);
+				printf("\n\tName: %s", b[idx].name);
+				printf("\n\tBalance of accounts: %d", b[idx].cost);
 
-				ccost = b.cost;
+				ccost = b[idx].cost;
 				break;
 			}
-			else
+			
+			idx++;
+
+			if(idx == num)
 			{
 				printf("You enter a wrong number. Please try again.\n");
+				idx = 0;
 				continue;
 			}
 		}	
@@ -118,10 +127,11 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 	printf("\n");
 	fclose(ufp);
 	fclose(fpp);
-
+	
+	return 0;
 }
 
-void payment(char **movie_name, int msel, int mcol, int mrow, int ticket, int ccost)
+void payment(char **movie_name, int msel, int mcol, int mrow, int ticket, int ccost, int num)
 {
 	int select;
 	int retval;
@@ -146,7 +156,7 @@ void payment(char **movie_name, int msel, int mcol, int mrow, int ticket, int cc
 			break;
 
 		case 2:
-			retval = pay_ticket(movie_name, msel, mcol, mrow, ticket, ccost);
+			retval = pay_ticket(movie_name, msel, mcol, mrow, ticket, ccost, num);
 			if (retval)
 				return;
 			break;
