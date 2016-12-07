@@ -132,7 +132,7 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 	return 0;
 }
 
-void payment(char **movie_name, int msel, int mcol, int mrow, int ticket, int ccost, int num)
+void payment(char **movie_name, int msel, int mcol, int mrow, int ticket, int ccost)
 {
 	int select;
 	int retval;
@@ -157,7 +157,7 @@ void payment(char **movie_name, int msel, int mcol, int mrow, int ticket, int cc
 			break;
 
 		case 2:
-			retval = pay_ticket(movie_name, msel, mcol, mrow, ticket, ccost, num);
+			retval = pay_ticket(movie_name, msel, mcol, mrow, ticket, ccost);
 			if (retval)
 				return;
 			break;
