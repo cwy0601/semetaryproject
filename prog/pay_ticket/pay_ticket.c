@@ -29,6 +29,7 @@ void display_card()
 int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int ccost)
 {
 	int idx = 0;
+	int flag = 0;
 
 	struct book {
 		char card[20];
@@ -68,23 +69,27 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 		{
 			scanf("%s", cardnum);
 			
-			if (strcmp(b[idx].card, cardnum) == 0)
+			for(int i = 0; i < NUM_OF_DATA; i++)
 			{
-				printf("\nRecord Found.");
-				printf("\n\tCard number: %s", b[idx].card);
-				printf("\n\tName: %s", b[idx].name);
-				printf("\n\tBalance of accounts: %d", b[idx].cost);
+				if (strcmp(b[i].card, cardnum) == 0)
+				{
+					printf("\nRecord Found.");
+					printf("\n\tCard number: %s", b[i].card);
+					printf("\n\tName: %s", b[i].name);
+					printf("\n\tBalance of accounts: %d", b[i].cost);
 
-				ccost = b[idx].cost;
-				break;
+					ccost = b[i].cost;
+					flag = 1;
+					break;
+				}
 			}
-			
-			idx++;
 
-			if(idx == NUM_OF_DATA)
+			if(flag = 1)
+				break;
+			else
 			{
-				printf("You enter a wrong number. Please try again.\n");
-				idx = 0;
+				printf("You enter a wrong number.\n");
+				printf("Enter your card number again: ");
 				continue;
 			}
 		}	
