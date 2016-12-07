@@ -70,7 +70,10 @@ void ch_date(int *year, int *month, int *day)
 				break;
 		}
 		else
+		{
+			m_flag = 1;
 			break;
+		}
 	}
 
 	printf("Please choose a day: ");
