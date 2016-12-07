@@ -30,7 +30,6 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 {
 	int idx = 0;
 	int flag = 0;
-	int ret;
 
 	struct book {
 		char card[20];
