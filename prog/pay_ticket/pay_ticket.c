@@ -65,9 +65,9 @@ int pay_ticket(char **movie_name, int msel, int mcol, int mrow, int ticket, int 
 
 		for(int i = 0; i < NUM_OF_DATA; i++)
 		{
-			printf("%d. card: %s\n", b[i].card);
-			printf("%d. name: %s\n", b[i].name);
-			printf("%d. cost: %d\n", b[i].cost);
+			printf("%d. card: %s\n", i, b[i].card); 
+			printf("%d. name: %s\n", i, b[i].name);
+			printf("%d. cost: %d\n", i, b[i].cost);
 		}
 
 		printf("\nEnter your card number: ");
